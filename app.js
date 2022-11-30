@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.use('/', todoRoutes)
+app.use('/todo', todoRoutes)
 
 
 module.exports = app
