@@ -16,7 +16,9 @@ const TodoSchema = new Schema({
     trim: true,
     maxlenghth: [30]
   },
-});
+  
+},  
+{ timestamps: true });
 
 
 module.exports =mongoose.model("Todo",TodoSchema);

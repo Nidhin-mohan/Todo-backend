@@ -70,6 +70,29 @@ exports.gettodos = async (req, res) => {
     }
 }
 
+
+// edit todo
+
+exports.editTodo = async (req,res) => {
+    try {
+          const todoId = req.params.id;
+          const todo = await User.findByIdAndDelete(todoId);
+          res.status(200).json({
+            success: true,
+            message: "Todo is Deleted",
+          });
+        
+    } catch (error) {
+          console.log(error);
+          res.status(401).json({
+            success: false,
+            message: error.message,
+          });
+        
+        
+    }
+}
+
 // delete todo by id
 
 exports.deleteTodo = async (req,res) => {
@@ -91,5 +114,5 @@ exports.deleteTodo = async (req,res) => {
     }
 }
 
-// create new task
+
 
