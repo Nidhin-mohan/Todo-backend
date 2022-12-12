@@ -13,7 +13,6 @@ exports.home = (req,res) => {
 //Create new todo
 
 exports.createTodo = async (req, res) => {
-    console.log('created new todo');
 
     try {
         const {title , task } = req.body
@@ -55,7 +54,7 @@ exports.createTodo = async (req, res) => {
 
 exports.gettodos = async (req, res) => {
     try {
-        const todos = await User.find();
+        const todos = await Todo.find();
         res.status(200).json({
             success : true,
             todos,
@@ -76,10 +75,18 @@ exports.gettodos = async (req, res) => {
 exports.editTodo = async (req,res) => {
     try {
           const todoId = req.params.id;
-          const todo = await User.findByIdAndDelete(todoId);
+          const { title} = req.body;
+          const update = {
+            title: title,
+           
+          };
+
+          const todo = await Todo.findByIdAndUpdate(todoId, update,{new: true});
+  
           res.status(200).json({
             success: true,
-            message: "Todo is Deleted",
+            message: "Todo is updated",
+            todo,
           });
         
     } catch (error) {
@@ -98,7 +105,7 @@ exports.editTodo = async (req,res) => {
 exports.deleteTodo = async (req,res) => {
     try {
         const todoId = req.params.id;
-        const todo = await User.findByIdAndDelete(todoId);
+        const todo = await Todo.findByIdAndDelete(todoId);
         res.status(200).json({
             success:true,
             message: "Todo is Deleted"
