@@ -54,7 +54,8 @@ exports.createTodo = async (req, res) => {
 
 exports.gettodos = async (req, res) => {
     try {
-        const todos = await Todo.find();
+       
+        const todos = await Todo.find().sort({ createdAt: -1 });
         res.status(200).json({
             success : true,
             todos,

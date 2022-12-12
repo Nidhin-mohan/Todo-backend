@@ -7,7 +7,7 @@ const router = express.Router();
 //routes for task
 
 router.post("/createTask/:id", createTask);
-router.put("/deleteTask/:id", deleteTask);
+router.delete("/deleteTask/:id", deleteTask);
 
 
 
