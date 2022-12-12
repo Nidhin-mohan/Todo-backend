@@ -29,8 +29,8 @@ exports.createTask = async (req, res) => {
     
 
         
-    } catch (error) {
-         console.log(error);
+    } catch (err) {
+         console.log(err);
          res.status(401).json({
            success: false,
            message: err.message,
@@ -58,8 +58,8 @@ exports.deleteTask = async (req, res) => {
       success: true,
       todo,
     });
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
     res.status(401).json({
       success: false,
       message: err.message,
