@@ -2,7 +2,6 @@
 //need schema to work on routes
 const Todo = require("../model/Todo");
 
-
 //home route
 
 exports.home = (req,res) => {
