@@ -15,8 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/todo', todoRoutes);
-app.use('/todo', taskRoutes);
-app.use('/todo', searchRoutes);
 
 
 module.exports = app
