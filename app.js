@@ -7,12 +7,13 @@ const searchRoutes = require('./routes/searchRoutes')
 const cors = require("cors");
 const app = express();
 
+app.use(cors());
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
+
 
 app.use('/todo', todoRoutes);
 
