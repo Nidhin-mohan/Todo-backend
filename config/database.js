@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 
 exports.connect = () => {
+        mongoose.set("strictQuery", false);
     mongoose.connect(MONGODB_URI, {useNewUrlParser:true,useUnifiedTopology: true })
     .then(console.log("Database connected"))
     .catch((error) => {
